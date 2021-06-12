@@ -3,8 +3,9 @@ import time
 import cv2
 
 device_index = 0
-save_path = 'E:/CamLapseSave'
+save_path = '/tmp/CamLapseSave'
 capture_interval = 10
+frame_resolution = 'auto'
 
 
 def mkdir(path):
@@ -18,6 +19,13 @@ def mkdir(path):
 
 def start_capture():
     cap = cv2.VideoCapture(device_index)
+    res = frame_resolution.split("x", 1)
+    try:
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, int(res[0]))
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, int(res[1]))
+    except Exception:
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, 10000)
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 10000)
     capture_count = 0
     last_time = time.time()
     start_time = time.strftime("%Y%m%d-%H%M%S")
