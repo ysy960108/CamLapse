@@ -7,7 +7,7 @@ A tiny Timelapse tool based on python and opencv.
 pip install opencv-python
 ```
 ### Configure
-Edit CamLapse.py, line 5-7
+Edit CamLapse.py, line 5-8
 ```
 # If you have multiple video capture device, you can change it to 1,2,... , otherwise, leave it to 0
 device_index = 0
@@ -19,6 +19,11 @@ save_path = 'E:/CamLapseSave'
 ```
 # Set capture interval to every 10 seconds
 capture_interval = 10 
+```
+```
+# Set capture resolution, e.g. '1920x1080', '1280x720', or 'auto' which will use max resolution
+# Supports size < 10000px
+frame_resolution = 'auto'
 ```
 ### Run script
 ```
