@@ -28,3 +28,6 @@ or
 ```
 python3 CamLapse.py
 ```
+Then you can see a video capture window, and images will be captured automaticlly.
+#### Stop capture
+press ESC to stop image capture.
